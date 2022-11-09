@@ -2,8 +2,8 @@ name: 修改微信步数
 
 on:
   workflow_dispatch:
-#  schedule:
-#    - cron: '0 9,12 * * *'
+    schedule:
+    - cron: '0 9,12 * * *'
 
 jobs: 
   ChangBuShu: 
@@ -24,7 +24,7 @@ jobs:
     - name: 修改步数
       run: python3 changebushu_Action.py
       env:
-        USER_PHONE: ${{ secrets.USER_PHONE }}
+        USER_PHONE: ${{ secrets.USER_EMAIL }}
         USER_PWD: ${{ secrets.USER_PWD }}
         STEP: ${{ secrets.STEP }}
         STEP_MIN: ${{ secrets.STEP_MIN }}

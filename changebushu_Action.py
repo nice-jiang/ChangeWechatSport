@@ -12,7 +12,7 @@ def get_code(location):
 
 
 def login(user, password):
-    url1 = "https://api-user.huami.com/registrations/+86" + user + "/tokens"
+    url1 = "https://api-user.huami.com/registrations/" + user + "/tokens"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2"
@@ -40,7 +40,7 @@ def login(user, password):
         "device_id": "2C8B4939-0CCD-4E94-8CBA-CB8EA6E613A1",
         "device_model": "phone",
         "grant_type": "access_token",
-        "third_name": "huami_phone",
+        "third_name": "email",
     }
     r2 = requests.post(url2, data=data2, headers=headers).json()
     login_token = r2["token_info"]["login_token"]
@@ -104,7 +104,7 @@ def main_handler(event, context):
  
  
 if __name__ == "__main__":
-    user = os.environ['USER_PHONE']
+    user = os.environ['USER_EMAIL']
     password = os.environ['USER_PWD']
     step = str(randint(int(os.environ['STEP_MIN']), int(os.environ['STEP_MAX'])))
     # step = os.environ['STEP']
